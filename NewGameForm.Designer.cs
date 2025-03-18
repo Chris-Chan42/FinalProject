@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             gbGamer = new GroupBox();
-            lblNameHeading = new Label();
-            txtName = new TextBox();
-            txtFavoriteGame = new TextBox();
-            lblFavoriteHeading = new Label();
-            txtPlatform = new TextBox();
-            lblPlatformHeading = new Label();
+            btnSave = new Button();
             txtHours = new TextBox();
             lblHoursHeading = new Label();
-            btnSave = new Button();
+            txtPlatform = new TextBox();
+            lblPlatformHeading = new Label();
+            txtFavoriteGame = new TextBox();
+            lblFavoriteHeading = new Label();
+            txtName = new TextBox();
+            lblNameHeading = new Label();
+            btnClear = new Button();
             gbGamer.SuspendLayout();
             SuspendLayout();
             // 
@@ -45,6 +46,7 @@
             // 
             gbGamer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gbGamer.AutoSize = true;
+            gbGamer.Controls.Add(btnClear);
             gbGamer.Controls.Add(btnSave);
             gbGamer.Controls.Add(txtHours);
             gbGamer.Controls.Add(lblHoursHeading);
@@ -61,56 +63,15 @@
             gbGamer.TabStop = false;
             gbGamer.Text = "Favorite Game";
             // 
-            // lblNameHeading
+            // btnSave
             // 
-            lblNameHeading.AutoSize = true;
-            lblNameHeading.Location = new Point(10, 25);
-            lblNameHeading.Name = "lblNameHeading";
-            lblNameHeading.Size = new Size(42, 15);
-            lblNameHeading.TabIndex = 0;
-            lblNameHeading.Text = "Name:";
-            // 
-            // txtName
-            // 
-            txtName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtName.Location = new Point(102, 22);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(314, 23);
-            txtName.TabIndex = 1;
-            // 
-            // txtFavoriteGame
-            // 
-            txtFavoriteGame.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtFavoriteGame.Location = new Point(102, 51);
-            txtFavoriteGame.Name = "txtFavoriteGame";
-            txtFavoriteGame.Size = new Size(314, 23);
-            txtFavoriteGame.TabIndex = 3;
-            // 
-            // lblFavoriteHeading
-            // 
-            lblFavoriteHeading.AutoSize = true;
-            lblFavoriteHeading.Location = new Point(10, 54);
-            lblFavoriteHeading.Name = "lblFavoriteHeading";
-            lblFavoriteHeading.Size = new Size(86, 15);
-            lblFavoriteHeading.TabIndex = 2;
-            lblFavoriteHeading.Text = "Favorite Game:";
-            // 
-            // txtPlatform
-            // 
-            txtPlatform.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtPlatform.Location = new Point(102, 80);
-            txtPlatform.Name = "txtPlatform";
-            txtPlatform.Size = new Size(314, 23);
-            txtPlatform.TabIndex = 5;
-            // 
-            // lblPlatformHeading
-            // 
-            lblPlatformHeading.AutoSize = true;
-            lblPlatformHeading.Location = new Point(10, 83);
-            lblPlatformHeading.Name = "lblPlatformHeading";
-            lblPlatformHeading.Size = new Size(56, 15);
-            lblPlatformHeading.TabIndex = 4;
-            lblPlatformHeading.Text = "Platform:";
+            btnSave.Location = new Point(344, 141);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(75, 23);
+            btnSave.TabIndex = 8;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // txtHours
             // 
@@ -129,15 +90,66 @@
             lblHoursHeading.TabIndex = 6;
             lblHoursHeading.Text = "Total Hours:";
             // 
-            // btnSave
+            // txtPlatform
             // 
-            btnSave.Location = new Point(344, 141);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(75, 23);
-            btnSave.TabIndex = 8;
-            btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = true;
-            btnSave.Click += btnSave_Click;
+            txtPlatform.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtPlatform.Location = new Point(102, 80);
+            txtPlatform.Name = "txtPlatform";
+            txtPlatform.Size = new Size(314, 23);
+            txtPlatform.TabIndex = 5;
+            // 
+            // lblPlatformHeading
+            // 
+            lblPlatformHeading.AutoSize = true;
+            lblPlatformHeading.Location = new Point(10, 83);
+            lblPlatformHeading.Name = "lblPlatformHeading";
+            lblPlatformHeading.Size = new Size(56, 15);
+            lblPlatformHeading.TabIndex = 4;
+            lblPlatformHeading.Text = "Platform:";
+            // 
+            // txtFavoriteGame
+            // 
+            txtFavoriteGame.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtFavoriteGame.Location = new Point(102, 51);
+            txtFavoriteGame.Name = "txtFavoriteGame";
+            txtFavoriteGame.Size = new Size(314, 23);
+            txtFavoriteGame.TabIndex = 3;
+            // 
+            // lblFavoriteHeading
+            // 
+            lblFavoriteHeading.AutoSize = true;
+            lblFavoriteHeading.Location = new Point(10, 54);
+            lblFavoriteHeading.Name = "lblFavoriteHeading";
+            lblFavoriteHeading.Size = new Size(86, 15);
+            lblFavoriteHeading.TabIndex = 2;
+            lblFavoriteHeading.Text = "Favorite Game:";
+            // 
+            // txtName
+            // 
+            txtName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtName.Location = new Point(102, 22);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(314, 23);
+            txtName.TabIndex = 1;
+            // 
+            // lblNameHeading
+            // 
+            lblNameHeading.AutoSize = true;
+            lblNameHeading.Location = new Point(10, 25);
+            lblNameHeading.Name = "lblNameHeading";
+            lblNameHeading.Size = new Size(42, 15);
+            lblNameHeading.TabIndex = 0;
+            lblNameHeading.Text = "Name:";
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(21, 141);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(75, 23);
+            btnClear.TabIndex = 9;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // NewGameForm
             // 
@@ -165,5 +177,6 @@
         private TextBox txtFavoriteGame;
         private Label lblFavoriteHeading;
         private Button btnSave;
+        private Button btnClear;
     }
 }
